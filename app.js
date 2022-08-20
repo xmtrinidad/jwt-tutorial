@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/authRoutes');
+const { dbURI } = require('./thing');
+
 
 const app = express();
 
@@ -12,7 +14,7 @@ app.use(express.json());
 app.set('view engine', 'ejs');
 
 // database connection
-mongoose.connect('mongodb+srv://xmt:vtgFA1z4GDVDYxkB@cluster0.6t38aqi.mongodb.net/')
+mongoose.connect(dbURI)
   .then(() => {
     console.log('app listening at http://localhost:3000');
     app.listen(3000)})
