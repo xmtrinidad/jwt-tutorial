@@ -12,9 +12,10 @@ app.use(express.json());
 app.set('view engine', 'ejs');
 
 // database connection
-const dbURI = 'mongodb+srv://xmt:vtgFA1z4GDVDYxkB@cluster0.6t38aqi.mongodb.net/?retryWrites=true&w=majority';
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true })
-  .then((result) => app.listen(3000))
+mongoose.connect('mongodb+srv://xmt:vtgFA1z4GDVDYxkB@cluster0.6t38aqi.mongodb.net/')
+  .then(() => {
+    console.log('app listening at http://localhost:3000');
+    app.listen(3000)})
   .catch((err) => console.log(err));
 
 // routes
