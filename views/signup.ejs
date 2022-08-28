@@ -34,13 +34,16 @@
         headers: { 'Content-Type': 'application/json'}
       });
       const data = await res.json();
-      console.log(data);
       if (data.errors) {
         setErrors(data.errors);
+      }
+      if (data.user) {
+        location.assign('/')
       }
     } catch (err) {
 
     }
+
   });
 
   function setErrors(errors) {
